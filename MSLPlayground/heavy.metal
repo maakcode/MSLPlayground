@@ -11,10 +11,10 @@ using namespace metal;
 #include <CoreImage/CoreImage.h>
 extern "C" { namespace coreimage {
     
-    float4 tiktokfy(sampler s) {
+    float4 tiktokfy(sampler s, float offset) {
         float2 coord = s.coord();
-        float2 rOffset = float2(+0.02, +0.02);
-        float2 gbOffset = float2(-0.02, -0.02);
+        float2 rOffset = float2(offset, offset);
+        float2 gbOffset = float2(-offset, -offset);
 
         float3 rgb;
         rgb.r = s.sample(coord - rOffset).r;

@@ -15,9 +15,14 @@ struct ContentView: View {
             Image("github")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+
+            if let image = filter.apply(UIImage(named: "github"), offset: 0.01) {
+                Image(uiImage: image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }
             
-            
-            if let image = filter.apply(UIImage(named: "github")) {
+            if let image = filter.apply(UIImage(named: "github"), offset: 0.02) {
                 Image(uiImage: image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
